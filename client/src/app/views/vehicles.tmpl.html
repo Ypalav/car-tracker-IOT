@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Vehicle List</h2>
+    <div>
+        <input type="search" ng-model="vehiclesVm.searchText.model" placeholder="Search goes here..." class="form-control">
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th ng-click="vehiclesVm.changeSort('vin')">Vehicle Id</th>
+                <th ng-click="vehiclesVm.changeSort('make')">Make</th>
+                <th ng-click="vehiclesVm.changeSort('model')">Model</th>
+                <th ng-click="vehiclesVm.changeSort('year')">Year</th>
+                <th ng-click="vehiclesVm.changeSort('redLineRpm')">RedLine Rpm</th>
+                <th ng-click="vehiclesVm.changeSort('maxFuelVolume')">Max Fuel Volume</th>
+                <th ng-click="vehiclesVm.changeSort('lastServiceDate')">Last Service Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="vehicle in vehiclesVm.vehicles | filter:vehiclesVm.searchText | orderBy:vehiclesVm.sorter.by:vehiclesVm.sorter.reverse">
+                <td>{{vehicle.vin}}</td>
+                <td>{{vehicle.make}}</td>
+                <td>{{vehicle.model}}</td>
+                <td>{{vehicle.year}}</td>
+                <td>{{vehicle.redLineRpm}}</td>
+                <td>{{vehicle.maxFuelVolume}}</td>
+                <td>{{vehicle.lastServiceDate | date:'medium'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

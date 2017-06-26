@@ -1,0 +1,14 @@
+<div  ng-controller="LocationController as locationVm" ng-show="locationVm.showMap">
+    <h3 align="center">Location of vehicle in Last 30 minutes</h3>
+    <ui-gmap-google-map center='locationVm.map.center' zoom='locationVm.map.zoom' >
+        <ui-gmap-marker ng-repeat="location in locationVm.map.markers" idkey="location.id" coords="location.coords" icon="location.icon" >
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
+</div>
+
+<div ng-show="locationVm.showError">
+    <h3 align="center">No data available</h3>
+</div>
+
+
+
