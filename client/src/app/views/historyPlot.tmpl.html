@@ -1,0 +1,23 @@
+<div class="container" ng-controller="HistoryPlotController as historyVm">
+    <form align="center">
+        <label>
+            <input type="radio" ng-change="historyVm.changeFilter('last2hr')" ng-model="historyVm.filter.name"
+                   value="last2hr">
+            Last Two hours
+        </label>&nbsp;&nbsp;
+        <label>
+            <input type="radio" ng-change="historyVm.changeFilter('last1d')" ng-model="historyVm.filter.name"
+                   value="last1d">
+            Last One day
+        </label> <br><br>
+    </form>
+    <div ng-show="historyVm.showChart">
+        <chart title="Vehicle Readings" xName="Month" yName="Hit">
+
+        </chart>
+    </div>
+    <div ng-show="historyVm.showError">
+        <h3 align="center">No Data available for this date range...</h3>
+    </div>
+
+</div>
